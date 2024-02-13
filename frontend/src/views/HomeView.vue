@@ -1,9 +1,11 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import JobListings from '@/components/JobListings.vue';
+
+
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <JobListings />
   </main>
 </template>
