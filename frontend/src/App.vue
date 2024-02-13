@@ -1,22 +1,35 @@
-<script setup>
+<script>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import MobileHeader from './components/MobileHeader.vue'
+import DesktopHeader from './components/DesktopHeader.vue'
+import {ref, onMounted, onBeforeUnmount} from 'vue';
+
+export default{
+  name: "App",
+  components:{MobileHeader,DesktopHeader},
+  setup(){
+    onMounted(()=>{
+      window.addEventListener('resize', handleResize);
+    }) 
+   
+    
+    onBeforeUnmount(()=>{
+      window.removeEventListener('resize', handleResize);
+    })
+
+    const isMobile = ref(window.innerWidth <= 768)
+    const handleResize = () =>{
+      isMobile.value = window.innerWidth <= 768
+    }
+    
+    return {isMobile,handleResize}
+  }
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
+  <MobileHeader v-if="isMobile" />
+  <DesktopHeader v-else />
   <RouterView />
 </template>
 
