@@ -42,7 +42,7 @@ $ cd job-listings
 # Build and start all services defined in docker-compose.yml
 $ docker compose up --build
 
-# If you live changes in the browser open a new terminal:
+# If you want live changes in the browser open a new terminal:
 $ docker compose watch
 ```
 
