@@ -1,27 +1,35 @@
 <template>
-<div class="jobs-container">
-    <div v-for="job in jobs" :key="job.id"> 
-        <SingleJob :job="job" />
+  <div class="jobs-container">
+    <div v-for="job in jobs" :key="job.id">
+      <SingleJob :job="job" @tagClick="onTagClickEmitted" />
     </div>
-</div>
+  </div>
 </template>
 
 <script>
-import { ref } from 'vue'
-import SingleJob from './SingleJob.vue'
-export default{
-    props: ['jobs'],
-    components: {SingleJob},
-    setup(){
+import SingleJob from "./SingleJob.vue";
+export default {
+  props: ["jobs", "tagClick"],
+  emits: ["tagClick"],
+  components: { SingleJob },
 
-    }
-}
+  setup(props, ctx) {
+    const onTagClickEmitted = (tag) => {
+      ctx.emit("tagClick", tag);
+    };
+
+    return { onTagClickEmitted };
+  },
+};
 </script>
 
 <style scoped>
-.jobs-container{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+.jobs-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 90%;
+  margin: 2rem auto 0 auto;
 }
 </style>
