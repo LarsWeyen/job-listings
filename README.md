@@ -7,12 +7,10 @@ This is a solution to the [Job listings with filtering challenge on Frontend Men
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshots](#screenshots)
-  - [Links](#links)
+  - [How To Use](#how-to-use)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-
-
 
 
 ## Overview
@@ -29,6 +27,24 @@ Users should be able to:
 
 <img src="assets/desktop-screenshot.png" alt="Image of UI on desktop" width="1440"/>
 <img src="assets/mobile-screenshot.png" alt="Image of UI on mobile" width="372"/>
+
+### How To Use
+
+Clone and run this application, you'll need [Git](https://git-scm.com) and [Docker](https://www.docker.com/) From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/LarsWeyen/job-listings.git
+
+# Go into the repository
+$ cd job-listings
+
+# Build and start all services defined in docker-compose.yml
+$ docker compose up --build
+
+# If you live changes in the browser open a new terminal:
+$ docker compose watch
+```
 
 ## My process
 
