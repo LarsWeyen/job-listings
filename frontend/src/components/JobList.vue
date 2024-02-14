@@ -28,7 +28,7 @@ export default {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
   max-width: 90%;
   margin: 2rem auto 0 auto;
 }
